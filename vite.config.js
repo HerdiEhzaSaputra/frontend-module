@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import laravel, { refreshPaths } from 'laravel-vite-plugin';
+import { viteStaticCopy } from "vite-plugin-static-copy";
 
 export default defineConfig({
     plugins: [
@@ -10,7 +11,16 @@ export default defineConfig({
             ],
             refresh: [
                 ...refreshPaths,
-                'app/Http/Livewire/**',
+                "app/Http/Livewire/**",
+                "resources/views/**",
+            ],
+        }),
+        viteStaticCopy({
+            targets: [
+                {
+                    src: "resources/js/custom/*",
+                    dest: "assets/custom",
+                },
             ],
         }),
     ],

@@ -1,0 +1,48 @@
+.home {
+    @apply relative overflow-hidden bg-primary pt-[120px] md:pt-[130px] lg:pt-[160px];
+}
+
+.sticky .navbar-logo {
+    @apply py-2;
+}
+
+.sticky #navbarToggler span {
+    @apply bg-gray-900;
+}
+
+.sticky .signUpBtn {
+    @apply text-white hover:bg-gray-900 hover:text-white;
+}
+
+.sticky #navbarCollapse li a {
+    @apply text-gray-900 hover:text-blue-300 hover:opacity-100;
+}
+
+.sticky #navbarCollapse li .ud-menu-scroll.active {
+    @apply text-blue-300 opacity-100;
+}
+
+.sticky .loginBtn {
+    @apply text-gray-900 hover:text-blue-300 hover:opacity-100;
+}
+
+.bg-primary {
+    --tw-bg-opacity: 1;
+    background-color: rgb(48 86 211 / var(--tw-bg-opacity));
+}
+
+.navbarTogglerActive > span:nth-child(1) {
+    @apply top-[7px] rotate-45 transform;
+}
+
+.navbarTogglerActive > span:nth-child(2) {
+    @apply opacity-0;
+}
+
+.navbarTogglerActive > span:nth-child(3) {
+    @apply top-[-8px] rotate-[135deg];
+}
+
+#navbarCollapse li .ud-menu-scroll.active {
+    @apply opacity-70;
+}
