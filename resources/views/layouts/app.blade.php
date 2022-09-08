@@ -4,6 +4,7 @@
     @include('global.meta-head')
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     <script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js"></script>
 
     <meta name="theme-color" content="#ffffff">
