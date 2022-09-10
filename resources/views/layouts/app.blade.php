@@ -5,85 +5,13 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js"></script>
-
     <meta name="theme-color" content="#ffffff">
     <meta name="color-scheme" content="light">
 
-    <script>
-        const alwaysLightMode = false;
+    @include('global.app.style')
 
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-            if (localStorage.theme === 'system') {
-                if (e.matches) {
-                    document.documentElement.classList.add('dark');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                }
-            }
+    @include('global.app.head-script')
 
-            updateThemeAndSchemeColor();
-        });
-
-        function updateTheme() {
-            if (!('theme' in localStorage)) {
-                localStorage.theme = 'system';
-            }
-
-            switch (localStorage.theme) {
-                case 'system':
-                    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                        document.documentElement.classList.add('dark');
-                    } else {
-                        document.documentElement.classList.remove('dark');
-                    }
-                    document.documentElement.setAttribute('color-theme', 'system');
-                    break;
-
-                case 'dark':
-                    document.documentElement.classList.add('dark');
-                    document.documentElement.setAttribute('color-theme', 'dark');
-                    break;
-
-                case 'light':
-                    document.documentElement.classList.remove('dark');
-                    document.documentElement.setAttribute('color-theme', 'light');
-                    break;
-            }
-
-            updateThemeAndSchemeColor();
-        }
-
-        function updateThemeAndSchemeColor() {
-            if (! alwaysLightMode) {
-                if (document.documentElement.classList.contains('dark')) {
-                    document.querySelector('meta[name="color-scheme"]').setAttribute('content', 'dark');
-                    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#171923');
-
-                    return;
-                }
-
-                document.querySelector('meta[name="color-scheme"]').setAttribute('content', 'light');
-                document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffff');
-            }
-        }
-
-        updateTheme();
-
-        (window.toDarkMode = () => {
-        (localStorage.theme = "dark"), window.updateTheme();
-        }),
-        (window.toLightMode = () => {
-            (localStorage.theme = "light"), window.updateTheme();
-        }),
-        (window.toSystemMode = () => {
-            (localStorage.theme = "system"), window.updateTheme();
-        });
-    </script>
-
-
-
-    @livewireStyles
 </head>
 <body class="antialiased">
 
@@ -114,69 +42,7 @@
 
     </main>
 
-    @stack('modals')
-
-    @livewireScripts
-
-    <script>
-        const sidebar = document.getElementById('menu');
-
-        const toggleSidebarMobile = (sidebar, sidebarBackdrop) => {
-            sidebar.classList.toggle('hidden');
-            sidebarBackdrop.classList.toggle('hidden');
-        }
-
-        const toggleSidebarMobileEl = document.getElementById('toggleSidebarMobile');
-        const sidebarBackdrop = document.getElementById('sidebarBackdrop');
-        const toggleSidebarMobileSearch = document.getElementById('toggleSidebarMobileSearch');
-
-        toggleSidebarMobileSearch.addEventListener('click', () => {
-            toggleSidebarMobile(sidebar, sidebarBackdrop);
-            document.getElementById("mobile-search").focus();
-        });
-
-        toggleSidebarMobileEl.addEventListener('click', () => {
-            toggleSidebarMobile(sidebar, sidebarBackdrop);
-        });
-
-        sidebarBackdrop.addEventListener('click', () => {
-            toggleSidebarMobile(sidebar, sidebarBackdrop);
-        });
-    </script>
-
-    <script>
-        // just for fcking toogle button
-        const darkIcon = document.querySelector('#darkIcon');
-        const lightIcon = document.querySelector('#lightIcon');
-        const systemIcon = document.querySelector('#systemIcon');
-
-        darkIcon.addEventListener("click", function () {
-            lightIcon.classList.remove("hidden");
-            darkIcon.classList.toggle("hidden");
-        });
-        lightIcon.addEventListener("click", function () {
-            systemIcon.classList.remove("hidden");
-            lightIcon.classList.toggle("hidden");
-        });
-        systemIcon.addEventListener("click", function () {
-            darkIcon.classList.remove("hidden");
-            systemIcon.classList.toggle("hidden");
-        });
-
-        if (document.documentElement.getAttribute('color-theme') === 'system') {
-            systemIcon.classList.remove('hidden');
-        } else {
-            if (document.documentElement.getAttribute('color-theme') === 'dark') {
-                darkIcon.classList.remove('hidden');
-            } else {
-                lightIcon.classList.remove('hidden');
-            }
-        }
-        // this is the end of fcking toogle button
-
-
-    </script>
-
+    @include('global.app.body-script')
 
 </body>
 </html>

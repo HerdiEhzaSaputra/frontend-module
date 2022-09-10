@@ -56,11 +56,11 @@ Route::middleware([
     Route::get('pengadaan/tambah', function() { return view('dashboard.dashboard'); })->name('pengadaan.create');
     Route::get('pengadaan/produk', function() { return view('dashboard.dashboard'); })->name('pengadaan.produk');
 
-    Route::get('users/', function() { return view('dashboard.dashboard'); })->name('users.index');
-    Route::get('users/tambah', function() { return view('dashboard.dashboard'); })->name('users.create');
-    Route::get('users/roles', function() { return view('dashboard.dashboard'); })->name('users.roles');
-    Route::get('users/roles/tambah', function() { return view('dashboard.dashboard'); })->name('users.roles.creat');
-    Route::get('users/permissions', function() { return view('dashboard.dashboard'); })->name('users.permissions');
+    // Route::get('users/', function() { return view('dashboard.dashboard'); })->name('users.index');
+    // Route::get('users/tambah', function() { return view('dashboard.dashboard'); })->name('users.create');
+    // Route::get('users/roles', function() { return view('dashboard.dashboard'); })->name('users.roles');
+    // Route::get('users/roles/tambah', function() { return view('dashboard.dashboard'); })->name('users.roles.creat');
+    // Route::get('users/permissions', function() { return view('dashboard.dashboard'); })->name('users.permissions');
 
     Route::get('konsumen/', function() { return view ('dashboard.dashboard'); })->name('konsumen.index');
     Route::get('konsumen/create', function() { return view ('dashboard.dashboard'); })->name('konsumen.create');

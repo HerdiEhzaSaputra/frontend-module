@@ -7,26 +7,29 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Gate;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class RolesController extends Controller
 {
-    public function index(RolesDataTable $dataTable) {
-        abort_if(Gate::denies('access_user_management'), 403);
+    public function index() {
+        // abort_if(Gate::denies('access_user_management'), 403);
 
-        return $dataTable->render('user::roles.index');
+        $roles = Permission::all();
+
+        return view('user::roles.index', compact('roles'));
     }
 
 
     public function create() {
-        abort_if(Gate::denies('access_user_management'), 403);
+        // abort_if(Gate::denies('access_user_management'), 403);
 
         return view('user::roles.create');
     }
 
 
     public function store(Request $request) {
-        abort_if(Gate::denies('access_user_management'), 403);
+        // abort_if(Gate::denies('access_user_management'), 403);
 
         $request->validate([
             'name' => 'required|string|max:255',
@@ -46,14 +49,14 @@ class RolesController extends Controller
 
 
     public function edit(Role $role) {
-        abort_if(Gate::denies('access_user_management'), 403);
+        // abort_if(Gate::denies('access_user_management'), 403);
 
         return view('user::roles.edit', compact('role'));
     }
 
 
     public function update(Request $request, Role $role) {
-        abort_if(Gate::denies('access_user_management'), 403);
+        // abort_if(Gate::denies('access_user_management'), 403);
 
         $request->validate([
             'name' => 'required|string|max:255',
@@ -73,7 +76,7 @@ class RolesController extends Controller
 
 
     public function destroy(Role $role) {
-        abort_if(Gate::denies('access_user_management'), 403);
+        // abort_if(Gate::denies('access_user_management'), 403);
 
         $role->delete();
 

@@ -294,20 +294,20 @@
                 </x-menu-link>
             </li>
             <li>
-                <x-menu-link href="users.roles">
+                <x-menu-link href="roles.index">
                     {{ __('Users Roles') }}
                 </x-menu-link>
             </li>
             <li>
-                <x-menu-link href="users.roles.creat">
+                <x-menu-link href="roles.create">
                     {{ __('Tambah Users Roles') }}
                 </x-menu-link>
             </li>
-            <li>
+            {{-- <li>
                 <x-menu-link href="users.permissions">
                     {{ __('Manage Permissions') }}
                 </x-menu-link>
-            </li>
+            </li> --}}
         </ul>
     </li>
 
