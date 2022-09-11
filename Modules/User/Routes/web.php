@@ -13,12 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('user')->group(function() {
-    Route::get('/', 'UserController@index')->name('user.index');
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+
+    Route::prefix('user')->group(function() {
+        Route::get('/', 'UserController@index')->name('user.index');
+    });
+
+    //Users
+    Route::resource('users', 'UsersController')->except('show');
+
+    Route::prefix('users')->group(function() {
+        //Roles
+        Route::resource('roles', 'RolesController')->except('show');
+    });
+
 });
-
-//Users
-Route::resource('users', 'UsersController')->except('show');
-
-//Roles
-Route::resource('roles', 'RolesController')->except('show');

@@ -41,10 +41,14 @@
                         <hr>
 
                         <div class="block w-full overflow-auto scrolling-touch">
-                            @forelse ($roles as $role)
-                                {{ $role->name }}
-                            @empty
-                                
+                            <div class="grid grid-cols-3 gap-2">
+                                @forelse ($roles as $role)
+                                    <span class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">
+                                        {{ ucwords(str_replace("_", " ", $role->name)) }}
+                                    </span>
+                                @empty
+                            </div>
+
                             @endforelse
                         </div>
                     </div>
@@ -52,5 +56,5 @@
             </div>
         </div>
     </div>
-    
+
 </x-app-layout>

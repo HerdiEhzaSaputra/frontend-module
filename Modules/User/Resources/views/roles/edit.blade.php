@@ -783,7 +783,7 @@
                                 </div>
 
                                 <!-- Reports -->
-                                <div class="lg:w-1/3 pr-4 pl-4 md:w-1/2 pr-4 pl-4 mb-3">
+                                <div class="lg:w-1/3 md:w-1/2 pr-4 pl-4 mb-3">
                                     <div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300 h-full border-0 shadow">
                                         <div class="py-3 px-6 mb-0 bg-gray-200 border-b-1 border-gray-300 text-gray-900">
                                             Reports
@@ -804,8 +804,8 @@
                                 </div>
 
                                 <!-- Settings -->
-                                <div class="lg:w-1/3 pr-4 pl-4 md:w-1/2 pr-4 pl-4 mb-3">
-                                    <div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300 h-full border-0 shadow">
+                                <div class="lg:w-1/3 md:w-1/2 pr-4 pl-4 mb-3">
+                                    <div class="relative flex flex-col min-w-0 rounded break-words bg-white border-1 border-gray-300 h-full border-0 shadow">
                                         <div class="py-3 px-6 mb-0 bg-gray-200 border-b-1 border-gray-300 text-gray-900">
                                             Settings
                                         </div>
